@@ -3,3 +3,13 @@ on: pull_request_review
 jobs:
   labelWhenApproved:
     runs-on: ubuntu-latest
+    steps:
+    - name: Label approved pull requests
+        # You may pin to the exact commit or the version.
+        # uses: abinoda/label-when-approved-action@d8e895923241c6399899471c5eb91fc3cc717776
+      uses: abinoda/label-when-approved-action@1.0.5
+      env:
+        APPROVALS: "1"
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        ADD_LABEL: "All approvals completed"
+      
